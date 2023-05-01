@@ -47,7 +47,7 @@
     "node": "*"
   },
   "files": [
-    "dist/wallet_address_validator.js"
+    "dist/**"
   ],
   "scripts": {
     "bundle": "browserify src/wallet_address_validator.js --standalone WAValidator --outfile dist/wallet-address-validator.js",
