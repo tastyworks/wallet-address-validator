@@ -2,16 +2,16 @@
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
   "version": "1.4.4",
-  "main": "wallet-address-validator.js",
+  "main": "wallet-address-validator.min.js",
   "scripts": {
     "bundle": "browserify src/wallet_address_validator.js --standalone WAValidator --outfile wallet-address-validator.js",
-    "minify": "uglifyjs -c -m -o wallet-address-validator.min.js -- wallet-address-validator.js",
+    "minify": "uglifyjs -c -m -o wallet-address-validator.min.js -- wallet-address-validator.js && rm wallet-address-validator.js",
     "test:node": "mocha test",
     "test:browser": "karma start",
     "test": "npm run test:node && npm run test:browser",
     "start": "npm run bundle && npm run minify && npm test",
     "prepublishOnly": "npm version patch && npm run bundle",
-    "postpack": "git tag -a $npm_package_version -m $npm_package_version && git push origin $npm_package_version && rm wallet-address-validator.js"
+    "postpack": "git tag -a $npm_package_version -m $npm_package_version && git push origin $npm_package_version && rm wallet-address-validator.min.js"
   },
   "dependencies": {
     "base-x": "^3.0.4",
