@@ -1,54 +1,11 @@
 {
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
-  "keywords": [
-    "btc",
-    "bitcoin",
-    "bitcoin cash",
-    "litecoin",
-    "decred",
-    "dogecoin",
-    "ethereum",
-    "ripple",
-    "dash",
-    "neo",
-    "gas",
-    "komodo",
-    "zcash",
-    "qtum",
-    "altcoin",
-    "bankex",
-    "monero",
-    "segwit",
-    "crypto",
-    "address",
-    "wallet",
-    "validator",
-    "vertcoin",
-    "nano",
-    "raiblocks",
-    "javascript",
-    "browser",
-    "nodejs"
-  ],
   "version": "1.4.2",
-  "author": "developers@tastyworks.com",
-  "homepage": "https://github.com/ognus/wallet-address-validator",
-  "license": "SEE LICENSE IN LICENSE",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tastyworks/wallet-address-validator.git"
-  },
   "main": "wallet_address_validator.js",
-  "engines": {
-    "node": "*"
-  },
   "scripts": {
     "bundle": "browserify src/wallet_address_validator.js --standalone WAValidator --outfile wallet-address-validator.js",
-    "minify": "uglifyjs -c -m -o dist/wallet-address-validator.min.js -- dist/wallet-address-validator.js",
+    "minify": "uglifyjs -c -m -o wallet-address-validator.min.js -- wallet-address-validator.js",
     "test:node": "mocha test",
     "test:browser": "karma start",
     "test": "npm run test:node && npm run test:browser",
@@ -70,5 +27,18 @@
     "karma-mocha": "^2.0.1",
     "mocha": "^5.0.2",
     "uglify-js": "^3.3.13"
+  },
+  "author": "developers@tastyworks.com",
+  "homepage": "https://github.com/ognus/wallet-address-validator",
+  "license": "SEE LICENSE IN LICENSE",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tastyworks/wallet-address-validator.git"
   }
 }
