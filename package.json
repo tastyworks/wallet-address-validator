@@ -28,8 +28,8 @@
     "mocha": "^5.0.2",
     "uglify-js": "^3.3.13"
   },
-  "author": "developers@tastyworks.com",
-  "homepage": "https://github.com/ognus/wallet-address-validator",
+  "author": "developers@tastytrade.com",
+  "homepage": "https://github.com/tastyworks/wallet-address-validator",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

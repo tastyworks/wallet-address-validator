@@ -9,7 +9,7 @@ Forked from [ognus/wallet-address-validator](https://github.com/ognus/wallet-add
 
 ### NPM
 ```
-npm install wallet-address-validator
+npm install @tastyworks/wallet-address-validator
 ```
 
 ### Browser
