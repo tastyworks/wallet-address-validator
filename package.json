@@ -31,7 +31,7 @@
     "browser",
     "nodejs"
   ],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "developers@tastyworks.com",
   "homepage": "https://github.com/ognus/wallet-address-validator",
   "license": "SEE LICENSE IN LICENSE",
