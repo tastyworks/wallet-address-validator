@@ -8,5 +8,5 @@ src/
 test/
 
 README
-karma.conf.json
+karma.conf.js
 index.html
