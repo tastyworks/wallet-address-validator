@@ -1,7 +1,7 @@
 {
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "main": "wallet_address_validator.js",
   "scripts": {
     "bundle": "browserify src/wallet_address_validator.js --standalone WAValidator --outfile wallet-address-validator.js",
