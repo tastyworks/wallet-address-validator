@@ -56,7 +56,7 @@
     "test:browser": "karma start",
     "test": "npm run test:node && npm run test:browser",
     "start": "npm run bundle && npm run minify && npm test",
-    "prepublishOnly": "npm version minor",
+    "prepublishOnly": "npm version patch",
     "postpack": "git tag -a $npm_package_version -m $npm_package_version && git push origin $npm_package_version"
   },
   "dependencies": {
