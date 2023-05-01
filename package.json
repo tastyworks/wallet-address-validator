@@ -30,7 +30,7 @@
   },
   "author": "developers@tastyworks.com",
   "homepage": "https://github.com/ognus/wallet-address-validator",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
