@@ -1,0 +1,12 @@
+node_modules
+bower_components
+.idea
+.DS_Store
+.editorconfig
+package.json
+src/
+test/
+
+README
+karma.conf.js
+index.html
