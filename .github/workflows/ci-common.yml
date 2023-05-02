@@ -1,0 +1,36 @@
+name: CI common
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+    types:
+      # defaults
+      - opened
+      - reopened
+      - synchronize
+      # add transition from draft to ready_for_review
+      - ready_for_review
+    paths:
+      - 'src/**/*'
+      - '*'
+      - '!**/*.md'
+
+jobs:
+  checks: 
+    runs-on: ubuntu-latest
+
+    if: ${{ !github.event.pull_request.draft }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - uses: tastyworks/boulangerie-shared-github-workflows/.github/setup-node@main
+        with:
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+      - name: Unit tests
+        run: npm run test
