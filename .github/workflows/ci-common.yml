@@ -1,4 +1,4 @@
-name: CI common
+name: CI
 
 concurrency:
   group: ci-${{ github.ref }}
