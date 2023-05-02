@@ -14,7 +14,6 @@
     "postpack": "git tag -a $npm_package_version -m $npm_package_version && git push origin $npm_package_version"
   },
   "dependencies": {
-    "base-x": "^3.0.4",
     "jssha": "2.3.1",
     "safe-buffer": "^5.2.1"
   },
