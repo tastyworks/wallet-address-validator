@@ -30,108 +30,62 @@ npm install @tastyworks/wallet-address-validator
 
 ### Supported crypto currencies
 
-* Auroracoin/AUR, `'auroracoin'` or `'AUR'`
-
-* Bankex/BKX, `'bankex'` or `'BKX'`
-* BeaverCoin/BVC, `'beavercoin'` or `'BVC'`
-* Biocoin/BIO, `'biocoin'` or `'BIO'`
+* Aave/AAVE, `'aave'` or `'AAVE'`
 * Bitcoin/BTC, `'bitcoin'` or `'BTC'`
 * BitcoinCash/BCH, `'bitcoincash'` or `'BCH'`
-* BitcoinGold/BTG, `'bitcoingold'` or `'BTG'`
-* BitcoinPrivate/BTCP, `'bitcoinprivate'` or `'BTCP'`
-* BitcoinZ/BTCZ, `'bitcoinz'` or `'BTCZ'`
-
-* Callisto/CLO, `'callisto'` or `'CLO'`
-
-* Dash, `'dash'` or `'DASH'`
-* Decred/DCR, `'decred'` or `'DCR'`
-* Digibyte/DGB, `'digibyte'` or `'DGB'`
 * Dogecoin/DOGE, `'dogecoin'` or `'DOGE'`
-
 * Ethereum/ETH, `'ethereum'` or `'ETH'`
-* EthereumClassic/ETH, `'ethereumclassic'` or `'ETC'`
-* EthereumZero/ETZ, `'etherzero'` or `'ETZ'`
-
-* Freicoin/FRC, `'freicoin'` or `'FRC'`
-
-* Garlicoin/GRLC, `'garlicoin'` or `'GRLC'`
-
-* Hush/HUSH, `'hush'` or `'HUSH'`
-
-* Komodo/KMD, `'komodo'` or `'KMD'`
-
 * Litecoin/LTC, `'litecoin'` or `'LTC'`
-
-* Megacoin/MEC, `'megacoin'` or `'MEC'`
-
-* Monero/XMR, `'monero'` or `'XMR'`
-
-* Namecoin/NMC, `'namecoin'` or `'NMC'`
-* Nano/NANO, `'nano'` or `'NANO'`
-* NEO/NEO, `'NEO'` or `'NEO'`
-* NeoGas/GAS, `'neogas'` or `'GAS'`
-
-* Peercoin/PPCoin/PPC, `'peercoin'` or `'PPC'`
-* Primecoin/XPM, `'primecoin'` or `'XPM'`
-* Protoshares/PTS, `'protoshares'` or `'PTS'`
-
-* Qtum/QTUM, `'qtum'` or `'QTUM'`
-
-* Raiblocks/XRB, `'raiblocks'` or `'XRB'`
-* Ripple/XRP, `'ripple'` or `'XRP'`
-
-* Snowgem/SNG, `'snowgem'` or `'SNG'`
-
-* Vertcoin/VTC, `'vertcoin'` or `'VTC'`
-
-* Votecoin/VTC, `'votecoin'` or `'VOT'`
-
-* Zcash/ZEC, `'zcash'` or `'ZEC'`
-
-* Zclassic/ZCL, `'zclassic'` or `'ZCL'`
-
-* ZenCash/ZEN, `'zencash'` or `'ZEN'`
-
+* Basic Attention Token/BAT, `'basicattentiontoken'` or `'BAT'`
+* Compound/COMP, `'compound'` or `'COMP'`
+* Enjin Coin/ENJ, `'enjincoin'` or `'ENJ'`
+* Kyber Network/KNC, `'kybernetwork'` or `'KNC'`
+* Chain Link/LINK, `'chainlink'` or `'LINK'`
+* Polugon/MATIC, `'polygon'` or `'MATIC'`
+* Maker/MKR, `'maker'` or `'MKR'`
+* OMG Network/OMG, `'omgnetwork'` or `'OMG'`
+* PAX Gold/PAX, `'paxgold'` or `'PAXG'`
+* Shiba Inu/SHIB, `'shibainu'` or `'SHIB'`
+* Uni Swap/UNI, `'uniswap'` or `'UNI'`
+* 0x Protocol/zrx, `'0xprotocol'` or `'ZRX'`
 
 ### Usage example
 
 #### Node
 ```javascript
-var WAValidator = require('wallet-address-validator');
+import CAValidator from '@tastyworks/wallet-address-validator'
 
-var valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
-if(valid)
+const valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'BTC');
+if(valid) {
 	console.log('This is a valid address');
-else
+} else {
 	console.log('Address INVALID');
-
+}
 // This will log 'This is a valid address' to the console.
 ```
 
 ```javascript
-var WAValidator = require('wallet-address-validator');
+import CAValidator from '@tastyworks/wallet-address-validator'
 
-var valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'litecoin', 'testnet');
-if(valid)
-      console.log('This is a valid address');
-else
-      console.log('Address INVALID');
+const supported = WAValidator.isCurrencySupported('BTC');
 
-// As this is a invalid litecoin address 'Address INVALID' will be logged to console.
-```
-
-#### Browser
-```html
-<script src="wallet-address-validator.min.js"></script>
+if(supported) {
+	console.log('This is a supported coin');
+} else {
+	console.log('Address INVALID');
+}
+// This will log 'This is a valid address' to the console.
 ```
 
 ```javascript
-// WAValidator is exposed as a global (window.WAValidator)
-var valid = WAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'bitcoin');
-if(valid)
-    alert('This is a valid address');
-else
-    alert('Address INVALID');
+import CAValidator from '@tastyworks/wallet-address-validator'
 
-// This should show a pop up with text 'This is a valid address'.
+const valid = CAValidator.validate('1KFzzGtDdnq5hrwxXGjwVnKzRbvf8WVxck', 'litecoin', 'testnet');
+
+if(valid) {
+      console.log('This is a valid address');
+} else {
+      console.log('Address INVALID');
+}
+// As this is a invalid litecoin address 'Address INVALID' will be logged to console.
 ```
