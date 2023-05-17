@@ -1,9 +1,9 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-      "lib": ["ES2022", "DOM"],
-      "target": "ES2022",
-      "module": "ESNext",
+      "lib": ["ES5", "DOM"],
+      "target": "ES5",
+      "module": "CommonJS",
       "moduleResolution": "NodeNext",
       "outDir": "./lib/esm",
       "declarationDir": "./lib/esm/types"
