@@ -6,7 +6,6 @@ bower_components
 package.json
 src/
 test/
-
-README
+.github
 karma.conf.js
-index.html
+tsconfig.*
