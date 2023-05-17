@@ -12,5 +12,4 @@
     },
     "files": ["./src/wallet_address_validator.ts"],
     "include": ["./src/**/*"],
-    "exclude": ["node_modules"]
   }
