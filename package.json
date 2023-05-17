@@ -1,7 +1,7 @@
 {
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "types": "./lib/cjs/types/wallet_address_validator.d.ts",
   "main": "./lib/cjs/wallet_address_validator.js",
   "scripts": {
@@ -46,7 +46,7 @@
   },
   "files": [
     "lib/**/*"
- ],
+  ],
   "exports": {
     ".": {
       "import": {
