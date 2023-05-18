@@ -1,5 +1,5 @@
 // Karma configuration
-module.exports = function (config) {
+export default function (config) {
     config.set({
         basePath: '',
 

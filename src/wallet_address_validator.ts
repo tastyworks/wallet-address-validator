@@ -2,7 +2,7 @@ import currencies from './currencies.js';
 
 var DEFAULT_CURRENCY_NAME = 'bitcoin';
 
-export default {
+export default {    //todo: named exports
     validate: function (address: string, currencyNameOrSymbol: string, networkType?: "prod" | "testnet") {
         var currency = currencies.getByNameOrSymbol(currencyNameOrSymbol || DEFAULT_CURRENCY_NAME);
 
