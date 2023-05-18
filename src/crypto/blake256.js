@@ -1,5 +1,5 @@
 'use strict';
-import Buffer from 'safe-buffer'
+import { Buffer } from 'safe-buffer'
 /**
  * Credits to https://github.com/cryptocoinjs/blake-hash
  */
