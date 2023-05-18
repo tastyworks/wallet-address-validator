@@ -1,6 +1,6 @@
 import jsSHA from 'jssha/src/sha256';
 import Blake256 from './blake256';
-import { keccak256 } from './sha3';
+import sha3 from './sha3';
 import Blake2B from './blake2b';
 
 function numberToHex (number) {
@@ -46,9 +46,9 @@ export default {
         return new Blake2B(outlen).update(hexToUint8(hexString)).digest('hex');
     },
     keccak256: function (hexString) {
-        return keccak256(hexString);
+        return sha3['keccak256'](hexString);
     },
     keccak256Checksum: function (payload) {
-        return keccak256(payload).toString().substr(0, 8);
+        return sha3['keccak256'](payload).toString().substr(0, 8);
     }
 };
