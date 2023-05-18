@@ -2,12 +2,12 @@
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
   "version": "1.21.0",
-  "types": "./lib/esm/types/wallet_address_validator.d.ts",
-  "main": "./lib/esm/wallet_address_validator.js",
+  "types": "./lib/types/wallet_address_validator.d.ts",
+  "main": "./lib/wallet_address_validator.js",
   "scripts": {
     "clean": "rm -rf ./lib",
     "build": "npm run clean && npm run build:esm",
-    "build:esm": "tsc -p ./tsconfig.esm.json",
+    "build:esm": "tsc -p ./tsconfig.json",
     "prepack": "npm run build",
     "test:node": "mocha test",
     "test:browser": "karma start",
@@ -50,8 +50,8 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./lib/esm/types/wallet_address_validator.d.ts",
-        "default": "./lib/esm/wallet_address_validator.js"
+        "types": "./lib/types/wallet_address_validator.d.ts",
+        "default": "./lib/wallet_address_validator.js"
       }
     }
   }
