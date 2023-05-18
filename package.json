@@ -46,7 +46,6 @@
   "files": [
     "lib/**/*"
   ],
-  "type": "module",
   "exports": {
     ".": {
       "import": {
