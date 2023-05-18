@@ -12,7 +12,7 @@ for (var i = 0; i < ALPHABET.length; ++i) {
 }
 var BASE = ALPHABET.length;
 
-module.exports = {
+export default {
     decode: function(string) {
         if (string.length === 0) return [];
 

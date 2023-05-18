@@ -1,7 +1,7 @@
-var jsSHA = require('jssha/src/sha256');
-var Blake256 = require('./blake256');
-var keccak256 = require('./sha3')['keccak256'];
-var Blake2B = require('./blake2b');
+import jsSHA from 'jssha/src/sha256';
+import Blake256 from './blake256';
+import { keccak256 } from './sha3';
+import Blake2B from './blake2b';
 
 function numberToHex (number) {
     var hex = Math.round(number).toString(16);
@@ -20,7 +20,7 @@ function hexToUint8(hexString) {
     return new Uint8Array(arr);
 }
 
-module.exports = {
+export default {
     toHex: function (arrayOfBytes) {
         var hex = '';
         for(var i = 0; i < arrayOfBytes.length; i++) {

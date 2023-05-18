@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-var bech32 = require('./bech32');
+import bech32 from'./bech32';
 
 function convertbits (data, frombits, tobits, pad) {
   var acc = 0;
@@ -87,7 +87,7 @@ function isValidAddress(address, hrp) {
     return recreate === address.toLowerCase();
 }
 
-module.exports = {
+export default {
     encode: encode,
     decode: decode,
     isValidAddress: isValidAddress,

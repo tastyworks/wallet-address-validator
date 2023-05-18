@@ -637,4 +637,4 @@ var f = function (s) {
     }
 };
 
-module.exports = methods;
+export default methods;

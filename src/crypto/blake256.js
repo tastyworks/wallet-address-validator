@@ -1,5 +1,5 @@
 'use strict';
-var Buffer = require('safe-buffer').Buffer
+import Buffer from 'safe-buffer'
 /**
  * Credits to https://github.com/cryptocoinjs/blake-hash
  */
@@ -185,4 +185,4 @@ Blake256.prototype.digest = function (encoding) {
     return buffer.toString(encoding);
 }
 
-module.exports = Blake256;
+export default Blake256;

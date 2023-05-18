@@ -1,6 +1,6 @@
-var cryptoUtils = require('./crypto/utils');
+import cryptoUtils from './crypto/utils';
 
-module.exports = {
+export default {
     isValidAddress: function (address) {
         if (!/^0x[0-9a-fA-F]{40}$/.test(address)) {
             // Check if it has the basic requirements of an address

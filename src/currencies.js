@@ -1,5 +1,5 @@
-var ETHValidator = require('./ethereum_validator');
-var BTCValidator = require('./bitcoin_validator');
+import ETHValidator from './ethereum_validator';
+import BTCValidator from './bitcoin_validator';
 
 // defines P2PKH and P2SH address types for standard (prod) and testnet networks
 var CURRENCIES = [{
@@ -81,7 +81,7 @@ var CURRENCIES = [{
 }];
 
 
-module.exports = {
+export default {
     getByNameOrSymbol: function (currencyNameOrSymbol) {
         var nameOrSymbol = currencyNameOrSymbol.toLowerCase();
         for (var i = 0; i < CURRENCIES.length; i++) {

@@ -1,6 +1,6 @@
-var base58 = require('./crypto/base58');
-var segwit = require('./crypto/segwit_addr');
-var cryptoUtils = require('./crypto/utils');
+import base58 from './crypto/base58';
+import segwit from './crypto/segwit_addr';
+import cryptoUtils from './crypto/utils';
 
 var DEFAULT_NETWORK_TYPE = 'prod';
 
@@ -68,7 +68,7 @@ function isValidP2PKHandP2SHAddress(address, currency, networkType) {
     return false;
 }
 
-module.exports = {
+export default {
     isValidAddress: function (address, currency, networkType) {
         return isValidP2PKHandP2SHAddress(address, currency, networkType) || segwit.isValidAddress(address, currency.segwitHrp);
     }
