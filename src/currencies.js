@@ -1,6 +1,7 @@
 var ETHValidator = require('./ethereum_validator');
 var BTCValidator = require('./bitcoin_validator');
 var BCHValidator = require('./bch_validator');
+var ADAValidator = require('./ada_validator');
 
 // defines P2PKH and P2SH address types for standard (prod) and testnet networks
 var CURRENCIES = [{
@@ -38,6 +39,11 @@ var CURRENCIES = [{
     name: 'basicattentiontoken',
     symbol: 'bat',
     validator: ETHValidator,
+},{
+    name: 'cardano',
+    symbol: 'ada',
+    bech32Hrp: { prod: ['addr'], testnet: ['addr']},
+    validator: ADAValidator
 },{
     name: 'compound',
     symbol: 'comp',
