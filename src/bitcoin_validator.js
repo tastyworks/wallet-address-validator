@@ -18,7 +18,6 @@ function getChecksum(hashFunction, payload) {
     switch (hashFunction) {
         case 'blake256':
             return cryptoUtils.blake256Checksum(payload);
-            break;
         case 'sha256':
         default:
             return cryptoUtils.sha256Checksum(payload);
@@ -49,19 +48,20 @@ function getAddressType(address, currency) {
     return null;
 }
 
-function isValidP2PKHandP2SHAddress(address, currency, networkType) {
-    networkType = networkType || DEFAULT_NETWORK_TYPE;
-
+function isValidP2PKHandP2SHAddress(address, currency, opts) {
+    var networkType = opts && opts.networkType ? opts.networkType : DEFAULT_NETWORK_TYPE
+    
     var correctAddressTypes;
     var addressType = getAddressType(address, currency);
 
     if (addressType) {
         if (networkType === 'prod' || networkType === 'testnet') {
             correctAddressTypes = currency.addressTypes[networkType]
-        } else {
+        } else if (currency.addressTypes) {
             correctAddressTypes = currency.addressTypes.prod.concat(currency.addressTypes.testnet);
+        } else {
+            return false;
         }
-
         return correctAddressTypes.indexOf(addressType) >= 0;
     }
 
@@ -69,7 +69,7 @@ function isValidP2PKHandP2SHAddress(address, currency, networkType) {
 }
 
 module.exports = {
-    isValidAddress: function (address, currency, networkType) {
-        return isValidP2PKHandP2SHAddress(address, currency, networkType) || segwit.isValidAddress(address, currency.segwitHrp);
+    isValidAddress: function (address, currency, opts) {
+        return isValidP2PKHandP2SHAddress(address, currency, opts) || segwit.isValidAddress(address, currency, opts);
     }
 };
