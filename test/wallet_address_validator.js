@@ -82,13 +82,12 @@ describe('WAValidator.validate()', function () {
             // p2sh addresses
             valid('3NJZLcZEEYBpxYEUGewU4knsQRn1WM5Fkt', 'bitcoincash');
             valid('2MxKEf2su6FGAUfCEAHreGFQvEYrfYNHvL7', 'bitcoincash', 'testnet');
+
+            valid('bitcoincash:qq4v32mtagxac29my6gwj6fd4tmqg8rysu23dax807', 'bch');
+
         });
 
-<<<<<<< HEAD
-        it.only('should return true for correct litecoin addresses', function () {
-=======
         it('should return true for correct litecoin addresses', function () {
->>>>>>> 5f45081 (WB2-1321 - switch to webpack build)
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'litecoin');
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'LTC');
             valid('LTpYZG19YmfvY2bBDYtCKpunVRw7nVgRHW', 'litecoin');

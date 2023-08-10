@@ -1,5 +1,6 @@
 var ETHValidator = require('./ethereum_validator');
 var BTCValidator = require('./bitcoin_validator');
+var BCHValidator = require('./bch_validator');
 
 // defines P2PKH and P2SH address types for standard (prod) and testnet networks
 var CURRENCIES = [{
@@ -11,8 +12,9 @@ var CURRENCIES = [{
 },{
     name: 'bitcoincash',
     symbol: 'bch',
-    addressTypes: {prod: ['00', '05'], testnet: ['6f', 'c4']},
-    validator: BTCValidator
+    regexp: '^[qQpP]{1}[0-9a-zA-Z]{41}$',
+    addressTypes: { prod: ['00', '05'], testnet: ['6f', 'c4'] },
+    validator: BCHValidator
 },{
     name: 'litecoin',
     symbol: 'ltc',
