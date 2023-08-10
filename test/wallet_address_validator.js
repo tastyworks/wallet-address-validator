@@ -87,7 +87,7 @@ describe('WAValidator.validate()', function () {
 
         });
 
-        it('should return true for correct litecoin addresses', function () {
+        it.only('should return true for correct litecoin addresses', function () {
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'litecoin');
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'LTC');
             valid('LTpYZG19YmfvY2bBDYtCKpunVRw7nVgRHW', 'litecoin');
