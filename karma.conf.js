@@ -3,7 +3,7 @@ module.exports = function (config) {
     config.set({
         basePath: '',
 
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai', 'browserify'],
 
         files: [
             'wallet-address-validator.min.js',
@@ -22,6 +22,10 @@ module.exports = function (config) {
 
         singleRun: true,
 
-        concurrency: Infinity
+        concurrency: Infinity,
+        
+        preprocessors: {
+           'test/**/*.js': [ 'browserify' ]
+        },
     })
 };

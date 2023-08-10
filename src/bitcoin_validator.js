@@ -16,8 +16,14 @@ function getDecoded(address) {
 function getChecksum(hashFunction, payload) {
     // Each currency may implement different hashing algorithm
     switch (hashFunction) {
+        // blake then keccak hash chain
+        case 'blake256keccak256':
+            var blake = cryptoUtils.blake2b256(payload);
+            return cryptoUtils.keccak256Checksum(Buffer.from(blake, 'hex'));
         case 'blake256':
             return cryptoUtils.blake256Checksum(payload);
+        case 'keccak256':
+            return cryptoUtils.keccak256Checksum(payload);
         case 'sha256':
         default:
             return cryptoUtils.sha256Checksum(payload);
@@ -38,6 +44,12 @@ function getAddressType(address, currency) {
             return null;
         }
 
+        if(currency.regex) {
+            if(!currency.regex.test(address)) {
+                return false;
+            }
+        }
+
         var checksum = cryptoUtils.toHex(decoded.slice(length - 4, length)),
             body = cryptoUtils.toHex(decoded.slice(0, length - 4)),
             goodChecksum = getChecksum(hashFunction, body);
@@ -49,8 +61,8 @@ function getAddressType(address, currency) {
 }
 
 function isValidP2PKHandP2SHAddress(address, currency, opts) {
-    var networkType = opts && opts.networkType ? opts.networkType : DEFAULT_NETWORK_TYPE
-    
+    const { networkType = DEFAULT_NETWORK_TYPE} = opts;
+
     var correctAddressTypes;
     var addressType = getAddressType(address, currency);
 
@@ -62,6 +74,7 @@ function isValidP2PKHandP2SHAddress(address, currency, opts) {
         } else {
             return false;
         }
+
         return correctAddressTypes.indexOf(addressType) >= 0;
     }
 
@@ -69,7 +82,7 @@ function isValidP2PKHandP2SHAddress(address, currency, opts) {
 }
 
 module.exports = {
-    isValidAddress: function (address, currency, opts) {
+    isValidAddress: function (address, currency, opts = {}) {
         return isValidP2PKHandP2SHAddress(address, currency, opts) || segwit.isValidAddress(address, currency, opts);
     }
 };

@@ -16,4 +16,4 @@ module.exports = {
         var currency = currencies.getByNameOrSymbol(currencyNameOrSymbol);
         return !!currency
     }
-};
+}

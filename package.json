@@ -1,19 +1,21 @@
 {
   "name": "@tastyworks/wallet-address-validator",
   "description": "Wallet address validator for Bitcoin and other Altcoins.",
-  "version": "1.25.0",
-  "main": "wallet-address-validator.min.js",
+  "version": "2.0.0",
+  "type": "commonjs",
+  "main": "dist/index_bundle.js",
   "scripts": {
-    "bundle": "browserify src/wallet_address_validator.js --standalone WAValidator --outfile wallet-address-validator.js",
-    "minify": "uglifyjs -c -m -o wallet-address-validator.min.js -- wallet-address-validator.js",
+    "build": "webpack",
     "test:node": "mocha test",
     "test:browser": "karma start",
     "test": "npm run test:node && npm run test:browser",
-    "start": "npm run bundle && npm run minify && npm test",
-    "prepublishOnly": "npm version minor && npm run bundle && npm run minify",
+    "start": "npm run build && npm run minify && npm test",
+    "prepublishOnly": "npm version minor && npm run build",
     "postpack": "git tag -a $npm_package_version -m $npm_package_version && git push origin $npm_package_version"
   },
   "dependencies": {
+    "browserify-bignum": "^1.3.0-2",
+    "js-sha512": "^0.8.0",
     "jssha": "2.3.1",
     "safe-buffer": "^5.2.1"
   },
@@ -21,14 +23,18 @@
     "@babel/cli": "^7.22.10",
     "@babel/core": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
+    "babel-loader": "^9.1.3",
     "browserify": "^17.0.0",
     "chai": "^4.1.2",
     "karma": "^6.4.2",
+    "karma-browserify": "^8.1.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^2.0.1",
     "mocha": "^5.0.2",
-    "uglify-js": "^3.3.13"
+    "uglify-js": "^3.3.13",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "author": "developers@tastytrade.com",
   "homepage": "https://github.com/tastyworks/wallet-address-validator",

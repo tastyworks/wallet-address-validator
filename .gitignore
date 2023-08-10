@@ -2,5 +2,4 @@ node_modules
 bower_components
 .idea
 .DS_Store
-wallet-address-validator.js
-wallet-address-validator.min.js
+dist/

@@ -89,13 +89,13 @@ function encode (hrp, version, program) {
 
 var DEFAULT_NETWORK_TYPE = 'prod'
 
-function isValidAddress(address, currency, opts) {
+function isValidAddress(address, currency, opts = {}) {
 
   if(!currency.bech32Hrp || currency.bech32Hrp.length === 0) {
     return false;
   }
 
-  var networkType = opts && opts.networkType ? opts.networkType : DEFAULT_NETWORK_TYPE
+  const { networkType = DEFAULT_NETWORK_TYPE} = opts;
 
   var correctBech32Hrps;
   if (networkType === 'prod' || networkType === 'testnet') {
@@ -106,11 +106,11 @@ function isValidAddress(address, currency, opts) {
     return false;
   }
 
-  for (var i = 0; i < correctBech32Hrps.length; i++) {
-      var ret = decode(correctBech32Hrps[i], address);
-      if(ret) {
-        return encode(correctBech32Hrps[i], ret.version, ret.program) === address.toLowerCase();
-      }
+  for(var chrp of correctBech32Hrps) {
+    var ret = decode(chrp, address);
+    if(ret) {
+      return encode(chrp, ret.version, ret.program) === address.toLowerCase();
+    }
   }
 
   return false;
