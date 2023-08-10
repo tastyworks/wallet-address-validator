@@ -84,7 +84,11 @@ describe('WAValidator.validate()', function () {
             valid('2MxKEf2su6FGAUfCEAHreGFQvEYrfYNHvL7', 'bitcoincash', 'testnet');
         });
 
+<<<<<<< HEAD
         it.only('should return true for correct litecoin addresses', function () {
+=======
+        it('should return true for correct litecoin addresses', function () {
+>>>>>>> 5f45081 (WB2-1321 - switch to webpack build)
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'litecoin');
             valid('LVg2kJoFNg45Nbpy53h7Fe1wKyeXVRhMH9', 'LTC');
             valid('LTpYZG19YmfvY2bBDYtCKpunVRw7nVgRHW', 'litecoin');

@@ -61,13 +61,7 @@ function getAddressType(address, currency) {
 }
 
 function isValidP2PKHandP2SHAddress(address, currency, opts) {
-<<<<<<< HEAD
     const { networkType = DEFAULT_NETWORK_TYPE} = opts;
-
-=======
-    var networkType = opts && opts.networkType ? opts.networkType : DEFAULT_NETWORK_TYPE
-    
->>>>>>> 166b313 (WB2-1321 - add validation for newer ltc addresses)
     var correctAddressTypes;
     var addressType = getAddressType(address, currency);
 
@@ -79,6 +73,7 @@ function isValidP2PKHandP2SHAddress(address, currency, opts) {
         } else {
             return false;
         }
+
         return correctAddressTypes.indexOf(addressType) >= 0;
     }
 
@@ -86,11 +81,7 @@ function isValidP2PKHandP2SHAddress(address, currency, opts) {
 }
 
 module.exports = {
-<<<<<<< HEAD
     isValidAddress: function (address, currency, opts = {}) {
-=======
-    isValidAddress: function (address, currency, opts) {
->>>>>>> 166b313 (WB2-1321 - add validation for newer ltc addresses)
         return isValidP2PKHandP2SHAddress(address, currency, opts) || segwit.isValidAddress(address, currency, opts);
     }
 };
