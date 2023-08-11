@@ -5,7 +5,8 @@ var BTCValidator = require('./bitcoin_validator');
 var CURRENCIES = [{
     name: 'bitcoin',
     symbol: 'btc',
-    addressTypes: {prod: ['00', '05'], testnet: ['6f', 'c4']},
+    addressTypes: { prod: ['00', '05'], testnet: ['6f', 'c4', '3c', '26'] },
+    bech32Hrp: { prod: ['bc'], testnet: ['tb'] },
     validator: BTCValidator
 },{
     name: 'bitcoincash',
@@ -16,6 +17,7 @@ var CURRENCIES = [{
     name: 'litecoin',
     symbol: 'ltc',
     addressTypes: {prod: ['30', '05', '32'], testnet: ['6f', 'c4', '3a']},
+    bech32Hrp: {prod: ['ltc'], testnet: ['tltc']},
     validator: BTCValidator
 },{
     name: 'dogecoin',

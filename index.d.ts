@@ -1,6 +1,6 @@
-declare const CAValidator: {
+declare const WAValidator: {
     isCurrencySupported(coin: string): boolean,
     validate(value: string, coin: string): boolean
 }
 
-export default CAValidator
+export default WAValidator
