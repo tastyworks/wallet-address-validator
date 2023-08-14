@@ -1,3 +1,5 @@
+// https://github.com/christsim/multicoin-address-validator/blob/master/src/bip173_validator.js
+
 var bech32 = require('./crypto/bech32');
 
 // bip 173 bech 32 addresses (https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki)

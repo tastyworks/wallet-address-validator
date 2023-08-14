@@ -1,3 +1,5 @@
+// https://github.com/christsim/multicoin-address-validator/blob/master/src/ada_validator.js
+
 var cbor = require('cbor-js');
 var CRC = require('crc');
 var base58 = require('./crypto/base58');
@@ -5,7 +7,7 @@ var BIP173Validator = require('./bip173_validator')
 
 function getDecoded(address) {
     try {
-        var decoded = base58.decode(address);
+        const decoded = base58.decode(address);
         return cbor.decode(new Uint8Array(decoded).buffer);
     } catch (e) {
         // if decoding fails, assume invalid address
@@ -14,22 +16,22 @@ function getDecoded(address) {
 }
 
 function isValidAddressV1(address) {
-    var decoded = getDecoded(address);
+    const decoded = getDecoded(address);
 
-    if (!decoded || (!Array.isArray(decoded) && decoded.length != 2)) {
+    if (!decoded || (!Array.isArray(decoded) && decoded.length !== 2)) {
         return false;
     }
 
-    var tagged = decoded[0];
-    var validCrc = decoded[1];
-    if (typeof (validCrc) != 'number') {
+    const tagged = decoded[0];
+    const validCrc = decoded[1];
+    if (typeof (validCrc) !== 'number') {
         return false;
     }
 
     // get crc of the payload
-    var crc = CRC.crc32(tagged);
+    const crc = CRC.crc32(tagged);
 
-    return crc == validCrc;
+    return crc === validCrc;
 }
 
 function isValidAddressShelley(address, currency, opts) {
