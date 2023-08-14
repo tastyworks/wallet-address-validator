@@ -62,7 +62,6 @@ function getAddressType(address, currency) {
 
 function isValidP2PKHandP2SHAddress(address, currency, opts) {
     const { networkType = DEFAULT_NETWORK_TYPE} = opts;
-
     var correctAddressTypes;
     var addressType = getAddressType(address, currency);
 

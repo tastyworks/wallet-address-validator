@@ -82,6 +82,9 @@ describe('WAValidator.validate()', function () {
             // p2sh addresses
             valid('3NJZLcZEEYBpxYEUGewU4knsQRn1WM5Fkt', 'bitcoincash');
             valid('2MxKEf2su6FGAUfCEAHreGFQvEYrfYNHvL7', 'bitcoincash', 'testnet');
+
+            valid('bitcoincash:qq4v32mtagxac29my6gwj6fd4tmqg8rysu23dax807', 'bch');
+
         });
 
         it('should return true for correct litecoin addresses', function () {
