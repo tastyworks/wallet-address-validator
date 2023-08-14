@@ -2,6 +2,7 @@
 Simple wallet address validator for validating Bitcoin and other altcoins addresses in **Node.js and browser**.
 
 Forked from [ognus/wallet-address-validator](https://github.com/ognus/wallet-address-validator).
+In cases where address formats weren't supported by the original fork (e.g. LTC, BCH, ADA), additional logic has come from [christsim/multicoin-address-validator](https://github.com/christsim/multicoin-address-validator/tree/master)
 
 **File size is ~22 kB (minifed and gzipped)**.
 
