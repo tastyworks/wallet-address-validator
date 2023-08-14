@@ -1,14 +1,16 @@
+// https://github.com/christsim/multicoin-address-validator/blob/master/src/bch_validator.js
+
 var cryptoUtils = require('./crypto/utils');
 var bech32 = require('./crypto/bech32');
 var BTCValidator = require('./bitcoin_validator');
 
 function validateAddress(address, currency, opts) {
-    var networkType = opts ? opts.networkType : ''
-    var prefix = 'bitcoincash';
-    var regexp = new RegExp(currency.regexp);
-    var raw_address;
+    const networkType = opts ? opts.networkType : ''
+    const prefix = 'bitcoincash';
+    const regexp = new RegExp(currency.regexp);
+    let raw_address;
 
-    var res = address.split(':');
+    const res = address.split(':');
     if (res.length === 1) {
         raw_address = address
     } else {
@@ -22,11 +24,11 @@ function validateAddress(address, currency, opts) {
         return false;
     }
 
-    if (raw_address.toLowerCase() != raw_address && raw_address.toUpperCase() != raw_address) {
+    if (raw_address.toLowerCase() !== raw_address && raw_address.toUpperCase() !== raw_address) {
         return false;
     }
 
-    var decoded = cryptoUtils.base32.b32decode(raw_address);
+    const decoded = cryptoUtils.base32.b32decode(raw_address);
     if (networkType === 'testnet') {
         prefix = 'bchtest';
     }
